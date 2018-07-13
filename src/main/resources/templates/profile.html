@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="float-right" th:text="${#lists.size(userList)}+' users in the database'"></div>
+        <div class="row">
+                <span th:each="eachUser:${userList}">
+                <!--Iterate through users and display details. Remember, 365,000 ways of doing the same thing: see two below
+                For details, see how the username and unencrypted password options are populated in the RandomUser class.
+                -->
+                    <div class="col-12 mt-1 mw-100">
+                        <div class="card">
+                        <!--The line below can be used to display images when the map has values-->
+                        <!--<img class="card-img-top" th:src="${eachUser.image.get('large')}" alt="User's Profile Picture">-->
+
+                        <!--The URL is populated as soon as the first setter method is used-->
+                        <img class="card-img-top" th:src="${eachUser.imageURL}" alt="User's Profile Picture">
+                        <div class="card-body text-center col">
+                            <p class="card-title lead" th:text="${eachUser.username}"></p>
+                            <p class="card-text" th:text="${eachUser.unEncryptedPassword}"></p>
+                        </div>
+                        </div>
+                    </div>
+                </span>
+                </div>
+    </div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</html>
