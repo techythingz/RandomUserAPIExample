@@ -1,4 +1,4 @@
-# Random Uesr api example
+# Random Uesr API example (Spring Boot)
 
 This example uses the  [random user API](http://www.randomuser.me/documentation). 
 With this application you can: 
